@@ -5,6 +5,7 @@ services:
   - docker
 
 before_install:
+  - npm i -g yarn
   - docker build -t datnguyentan/frontend-docker .
 
 script:
