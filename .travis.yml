@@ -11,6 +11,7 @@ script:
   - docker run -e CI=true datnguyentan/frontend-docker npm test
 
 after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker build -t datnguyentan/fe-docker .
   - docker push datnguyentan/fe-docker
 # deploy:
