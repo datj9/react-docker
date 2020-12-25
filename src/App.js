@@ -29,8 +29,8 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={HomePage} />
-        <Route path="/test" render={() => <div>Test</div>} />
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/test" render={() => <div>Test</div>} />
       </Switch>
     </BrowserRouter>
   );
