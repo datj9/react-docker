@@ -29,7 +29,7 @@ function App() {
   return (
     <Switch>
       <Route path="/" component={HomePage} />
-      <Route path="/test" component={<div>Test</div>} />
+      <Route path="/test" render={() => <div>Test</div>} />
     </Switch>
   );
 }
