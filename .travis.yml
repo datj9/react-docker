@@ -23,10 +23,8 @@ deploy:
   bucket_path: frontend-docker
   on:
     branch: main
-  access_key_id:
-    secure: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: $AWS_SECRET_KEY
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
 # after_success:
 #   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 #   - docker build -t datnguyentan/fe-docker .
