@@ -27,10 +27,12 @@ function HomePage() {
 
 function App() {
   return (
-    <Switch>
-      <Route path="/" component={HomePage} />
-      <Route path="/test" render={() => <div>Test</div>} />
-    </Switch>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={HomePage} />
+        <Route path="/test" render={() => <div>Test</div>} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
