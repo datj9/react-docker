@@ -4,11 +4,15 @@ language: generic
 services:
   - docker
 
+cache:
+  yarn: true
+
 before_install:
   - docker build -t datnguyentan/frontend-docker -f Dockerfile.dev .
+  - npm i -g yarn
 
 script:
-  - docker run -e CI=true datnguyentan/frontend-docker npm run test
+  - docker run -e CI=true datnguyentan/frontend-docker yarn test
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
