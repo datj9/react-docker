@@ -20,6 +20,7 @@ function HomePage() {
           Learn React
         </a>
         <Link to="/test">Test</Link>
+        <Link to="/new">New Page</Link>
       </header>
     </div>
   );
@@ -31,6 +32,15 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/test" render={() => <div>Test</div>} />
+        <Route
+          exact
+          path="/new"
+          render={() => (
+            <div>
+              <Link to="/">HomePage</Link>
+            </div>
+          )}
+        />
       </Switch>
     </BrowserRouter>
   );
