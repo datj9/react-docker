@@ -14,7 +14,18 @@ before_install:
 script:
   - docker run -e CI=true datnguyentan/frontend-docker yarn test
 
-after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker build -t datnguyentan/fe-docker .
-  - docker push datnguyentan/fe-docker
+deploy:
+  provider: elasticbeanstalk
+  region: ap-southeast-1
+  app: docker-react
+  env: dockerreact-env
+  bucket_name: elasticbeanstalk-ap-southeast-1-333674319299
+  bucket_path: frontend-docker
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+# after_success:
+#   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+#   - docker build -t datnguyentan/fe-docker .
+#   - docker push datnguyentan/fe-docker
